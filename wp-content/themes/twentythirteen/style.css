@@ -3135,3 +3135,11 @@ footer.entry-meta {
 		color: #333;
 	}
 }
+.sae-logo{
+    float: right;
+    background: url(./sae.png) no-repeat 0 0;
+    height: 34px;
+    width: 140px;
+    text-indent: -100%;
+    overflow: hidden;
+}
