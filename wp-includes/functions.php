@@ -524,7 +524,6 @@ function do_enclose( $content, $post_ID ) {
  * @return bool|string False on failure and string of headers if HEAD request.
  */
 function wp_get_http( $url, $file_path = false, $red = 1 ) {
-	@set_time_limit( 60 );
 
 	if ( $red > 5 )
 		return false;

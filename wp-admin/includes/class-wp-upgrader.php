@@ -191,7 +191,6 @@ class WP_Upgrader {
 		$args = wp_parse_args($args, $defaults);
 		extract($args);
 
-		@set_time_limit( 300 );
 
 		if ( empty($source) || empty($destination) )
 			return new WP_Error('bad_request', $this->strings['bad_request']);
