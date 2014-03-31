@@ -451,7 +451,6 @@ function image_edit_apply_changes( $image, $changes ) {
  */
 function stream_preview_image( $post_id ) {
 	$post = get_post( $post_id );
-	@ini_set( 'memory_limit', apply_filters( 'admin_memory_limit', WP_MAX_MEMORY_LIMIT ) );
 
 	$img = wp_get_image_editor( _load_image_to_edit_path( $post_id ) );
 

@@ -95,7 +95,6 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 		 *                          Accepts an integer (bytes), or a shorthand string notation, such as '256M'.
 		 */
 		// Set artificially high because GD uses uncompressed images in memory
-		@ini_set( 'memory_limit', apply_filters( 'image_memory_limit', WP_MAX_MEMORY_LIMIT ) );
 
 		$this->image = @imagecreatefromstring( file_get_contents( $this->file ) );
 
