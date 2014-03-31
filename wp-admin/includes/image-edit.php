@@ -257,17 +257,7 @@ function wp_save_image_file( $filename, $image, $mime_type, $post_id ) {
 		if ( null !== $saved )
 			return $saved;
 
-		switch ( $mime_type ) {
-			case 'image/jpeg':
-				/** This filter is documented in wp-includes/class-wp-image-editor.php */
-				return imagejpeg( $image, $filename, apply_filters( 'jpeg_quality', 90, 'edit_image' ) );
-			case 'image/png':
-				return imagepng( $image, $filename );
-			case 'image/gif':
-				return imagegif( $image, $filename );
-			default:
-				return false;
-		}
+        return apply_filters('SAE_FLITER_SAVE_IMAGE_FILE',$mime_type,$image,$filename);
 	}
 }
 
