@@ -2946,7 +2946,7 @@ msgstr "WordPress&rsaquo;错误"
 
 #: wp-includes/functions.php:2817
 msgid "Database Error"
-msgstr "数据库错误"
+msgstr "建立数据库连接时出错，请前往SAE管理平台初始化MYSQL等相关服务。详见<a href=\"http://wp4cloud.sinaapp.com/\">安装说明</a>。"
 
 #: wp-includes/functions.php:2821 wp-includes/ms-load.php:243
 msgid "Error establishing a database connection"
