@@ -2228,7 +2228,6 @@ function wp_ajax_get_revision_diffs() {
 		wp_send_json_error();
 
 	$return = array();
-	@set_time_limit( 0 );
 
 	foreach ( $_REQUEST['compare'] as $compare_key ) {
 		list( $compare_from, $compare_to ) = explode( ':', $compare_key ); // from:to

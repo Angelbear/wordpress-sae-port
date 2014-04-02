@@ -140,44 +140,44 @@ function wp_install_defaults( $user_id ) {
 		$first_post = __('Welcome to WordPress. This is your first post. Edit or delete it, then start blogging!');
 	}
 
-	$wpdb->insert( $wpdb->posts, array(
-								'post_author' => $user_id,
-								'post_date' => $now,
-								'post_date_gmt' => $now_gmt,
-								'post_content' => $first_post,
-								'post_excerpt' => '',
-								'post_title' => __('Hello world!'),
-								/* translators: Default post slug */
-								'post_name' => sanitize_title( _x('hello-world', 'Default post slug') ),
-								'post_modified' => $now,
-								'post_modified_gmt' => $now_gmt,
-								'guid' => $first_post_guid,
-								'comment_count' => 1,
-								'to_ping' => '',
-								'pinged' => '',
-								'post_content_filtered' => ''
-								));
-	$wpdb->insert( $wpdb->term_relationships, array('term_taxonomy_id' => $cat_tt_id, 'object_id' => 1) );
+    $wpdb->insert( $wpdb->posts, array(
+                                'post_author' => $user_id,
+                                'post_date' => $now,
+                                'post_date_gmt' => $now_gmt,
+                                'post_content' => $first_post,
+                                'post_excerpt' => '',
+                                'post_title' => $first_title,
+                                /* translators: Default post slug */
+                                'post_name' => sanitize_title( _x('hello-world', 'Default post slug') ),
+                                'post_modified' => $now,
+                                'post_modified_gmt' => $now_gmt,
+                                'guid' => $first_post_guid,
+                                'comment_count' => 1,
+                                'to_ping' => '',
+                                'pinged' => '',
+                                'post_content_filtered' => ''
+                                ));
+	$wpdb->insert( $wpdb->term_relationships, array('term_taxonomy_id' => $cat_tt_id, 'object_id' => 1) ));
 
 	// Default comment
-	$first_comment_author = __('Mr WordPress');
-	$first_comment_url = 'http://wordpress.org/';
-	$first_comment = __('Hi, this is a comment.
-To delete a comment, just log in and view the post&#039;s comments. There you will have the option to edit or delete them.');
-	if ( is_multisite() ) {
-		$first_comment_author = get_site_option( 'first_comment_author', $first_comment_author );
-		$first_comment_url = get_site_option( 'first_comment_url', network_home_url() );
-		$first_comment = get_site_option( 'first_comment', $first_comment );
-	}
-	$wpdb->insert( $wpdb->comments, array(
-								'comment_post_ID' => 1,
-								'comment_author' => $first_comment_author,
-								'comment_author_email' => '',
-								'comment_author_url' => $first_comment_url,
-								'comment_date' => $now,
-								'comment_date_gmt' => $now_gmt,
-								'comment_content' => $first_comment
-								));
+    $first_comment_author = __('soulteary');
+    $first_comment_email = 'soulteary@qq.com';
+    $first_comment_url = 'http://www.soulteary.com/';
+    $first_comment = __('开发者你好，如果你在使用中遇到任何问题，欢迎一起探讨。');
+    if ( is_multisite() ) {
+        $first_comment_author = get_site_option( 'first_comment_author', $first_comment_author );
+        $first_comment_url = get_site_option( 'first_comment_url', network_home_url() );
+        $first_comment = get_site_option( 'first_comment', $first_comment );
+    }
+    $wpdb->insert( $wpdb->comments, array(
+                                'comment_post_ID' => 1,
+                                'comment_author' => $first_comment_author,
+                                'comment_author_email' => $first_comment_email,
+                                'comment_author_url' => $first_comment_url,
+                                'comment_date' => $now,
+                                'comment_date_gmt' => $now_gmt,
+                                'comment_content' => $first_comment
+                                ));
 
 	// First Page
 	$first_page = sprintf( __( "This is an example page. It's different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:

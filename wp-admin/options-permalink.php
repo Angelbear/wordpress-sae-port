@@ -120,20 +120,7 @@ if ( isset($_POST['permalink_structure']) || isset($_POST['category_base']) ) {
 $permalink_structure = get_option('permalink_structure');
 $category_base = get_option('category_base');
 $tag_base = get_option( 'tag_base' );
-
-if ( $iis7_permalinks ) {
-	if ( ( ! file_exists($home_path . 'web.config') && win_is_writable($home_path) ) || win_is_writable($home_path . 'web.config') )
-		$writable = true;
-	else
-		$writable = false;
-} elseif ( $is_nginx ) {
-	$writable = false;
-} else {
-	if ( ( ! file_exists($home_path . '.htaccess') && is_writable($home_path) ) || is_writable($home_path . '.htaccess') )
-		$writable = true;
-	else
-		$writable = false;
-}
+$writable = true;
 
 if ( $wp_rewrite->using_index_permalinks() )
 	$usingpi = true;
